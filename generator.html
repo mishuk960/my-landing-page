@@ -1,1 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Affiliate Landing Page Generator</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 25px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .panel {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      margin-bottom: 25px;
+    }
+
+    .panel h2 {
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 6px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .offer {
+      border: 1px solid #e5e7eb;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    button {
+      border: 0;
+      padding: 13px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .generate {
+      background: #2563eb;
+      color: white;
+      width: 100%;
+    }
+
+    .copy {
+      background: #111827;
+      color: white;
+    }
+
+    .preview {
+      margin-top: 25px;
+      padding: 25px;
+      border-radius: 10px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+    }
+
+    .preview-card {
+      background: white;
+      padding: 20px;
+      margin-top: 15px;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .preview-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 18px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 7px;
+    }
+
+    #configOutput {
+      min-height: 300px;
+      font-family: monospace;
+      font-size: 13px;
+    }
+
+    .success {
+      display: none;
+      margin-top: 15px;
+      padding: 12px;
+      background: #dcfce7;
+      color: #166534;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 15px;
+      }
+
+      .panel {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Affiliate Landing Page Generator</h1>
+
+  <p class="subtitle">
+    Create and preview your affiliate offers
+  </p>
+
+
+  <!-- Site Settings -->
+  <div class="panel">
+
+    <h2>Site Settings</h2>
+
+    <label for="siteName">
+      Website Name
+    </label>
+
+    <input
+      id="siteName"
+      type="text"
+      value="My Landing Page"
+      placeholder="Enter website name"
+    >
+
+  </div>
+
+
+  <!-- Offer 1 -->
+  <div class="panel">
+
+    <h2>Offer 1</h2>
+
+    <div class="offer">
+
+      <label for="offer1Name">
+        Offer Name
+      </label>
+
+      <input
+        id="offer1Name"
+        type="text"
+        value="Offer 1"
+        placeholder="Example: Free Trial"
+      >
+
+      <label for="offer1Description">
+        Description
+      </label>
+
+      <textarea
+        id="offer1Description"
+        placeholder="Describe the offer"
+      >Discover this special offer.</textarea>
+
+      <label for="offer1Url">
+        Affiliate URL
+      </label>
+
+      <input
+        id="offer1Url"
+        type="url"
+        placeholder="https://your-affiliate-link.com/..."
+      >
+
+      <label for="offer1Button">
+        Button Text
+      </label>
+
+      <input
+        id="offer1Button"
+        type="text"
+        value="Get Offer"
+      >
+
+    </div>
+
+
+    <!-- Offer 2 -->
+    <h2 style="margin-top:30px;">
+      Offer 2
+    </h2>
+
+    <div class="offer">
+
+      <label for="offer2Name">
+        Offer Name
+      </label>
+
+      <input
+        id="offer2Name"
+        type="text"
+        value="Offer 2"
+      >
+
+      <label for="offer2Description">
+        Description
+      </label>
+
+      <textarea
+        id="offer2Description"
+      >Check out this offer.</textarea>
+
+      <label for="offer2Url">
+        Affiliate URL
+      </label>
+
+      <input
+        id="offer2Url"
+        type="url"
+        placeholder="https://your-affiliate-link.com/..."
+      >
+
+      <label for="offer2Button">
+        Button Text
+      </label>
+
+      <input
+        id="offer2Button"
+        type="text"
+        value="Get Offer"
+      >
+
+    </div>
+
+
+    <!-- Offer 3 -->
+    <h2 style="margin-top:30px;">
+      Offer 3
+    </h2>
+
+    <div class="offer">
+
+      <label for="offer3Name">
+        Offer Name
+      </label>
+
+      <input
+        id="offer3Name"
+        type="text"
+        value="Offer 3"
+      >
+
+      <label for="offer3Description">
+        Description
+      </label>
+
+      <textarea
+        id="offer3Description"
+      >Explore this offer.</textarea>
+
+      <label for="offer3Url">
+        Affiliate URL
+      </label>
+
+      <input
+        id="offer3Url"
+        type="url"
+        placeholder="https://your-affiliate-link.com/..."
+      >
+
+      <label for="offer3Button">
+        Button Text
+      </label>
+
+      <input
+        id="offer3Button"
+        type="text"
+        value="Get Offer"
+      >
+
+    </div>
+
+
+    <button
+      class="generate"
+      onclick="generatePage()"
+    >
+      Generate Landing Page
+    </button>
+
+    <div
+      id="successMessage"
+      class="success"
+    >
+      Landing page generated successfully.
+    </div>
+
+  </div>
+
+
+  <!-- Preview -->
+  <div
+    class="panel"
+    id="previewPanel"
+    style="display:none;"
+  >
+
+    <h2>Landing Page Preview</h2>
+
+    <div class="preview">
+
+      <h1 id="previewTitle"></h1>
+
+      <p>
+        Explore our featured offers and find
+        the option that works best for you.
+      </p>
+
+
+      <div class="preview-card">
+
+        <h3 id="previewOffer1"></h3>
+
+        <p id="previewDescription1"></p>
+
+        <a
+          id="previewButton1"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get Offer
+        </a>
+
+      </div>
+
+
+      <div class="preview-card">
+
+        <h3 id="previewOffer2"></h3>
+
+        <p id="previewDescription2"></p>
+
+        <a
+          id="previewButton2"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get Offer
+        </a>
+
+      </div>
+
+
+      <div class="preview-card">
+
+        <h3 id="previewOffer3"></h3>
+
+        <p id="previewDescription3"></p>
+
+        <a
+          id="previewButton3"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get Offer
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Generated Config -->
+  <div
+    class="panel"
+    id="configPanel"
+    style="display:none;"
+  >
+
+    <h2>Generated config.js</h2>
+
+    <textarea
+      id="configOutput"
+      readonly
+    ></textarea>
+
+    <button
+      class="copy"
+      onclick="copyConfig()"
+    >
+      Copy config.js
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+function getValue(id) {
+  return document.getElementById(id).value.trim();
+}
+
+
+function generatePage() {
+
+  const siteName =
+    getValue("siteName");
+
+  const offer1 = {
+    name: getValue("offer1Name"),
+    description: getValue("offer1Description"),
+    url: getValue("offer1Url"),
+    buttonText: getValue("offer1Button")
+  };
+
+  const offer2 = {
+    name: getValue("offer2Name"),
+    description: getValue("offer2Description"),
+    url: getValue("offer2Url"),
+    buttonText: getValue("offer2Button")
+  };
+
+  const offer3 = {
+    name: getValue("offer3Name"),
+    description: getValue("offer3Description"),
+    url: getValue("offer3Url"),
+    buttonText: getValue("offer3Button")
+  };
+
+
+  // Preview
+
+  document.getElementById(
+    "previewTitle"
+  ).textContent = siteName;
+
+
+  document.getElementById(
+    "previewOffer1"
+  ).textContent = offer1.name;
+
+  document.getElementById(
+    "previewDescription1"
+  ).textContent = offer1.description;
+
+  document.getElementById(
+    "previewButton1"
+  ).textContent = offer1.buttonText;
+
+  document.getElementById(
+    "previewButton1"
+  ).href = offer1.url;
+
+
+  document.getElementById(
+    "previewOffer2"
+  ).textContent = offer2.name;
+
+  document.getElementById(
+    "previewDescription2"
+  ).textContent = offer2.description;
+
+  document.getElementById(
+    "previewButton2"
+  ).textContent = offer2.buttonText;
+
+  document.getElementById(
+    "previewButton2"
+  ).href = offer2.url;
+
+
+  document.getElementById(
+    "previewOffer3"
+  ).textContent = offer3.name;
+
+  document.getElementById(
+    "previewDescription3"
+  ).textContent = offer3.description;
+
+  document.getElementById(
+    "previewButton3"
+  ).textContent = offer3.buttonText;
+
+  document.getElementById(
+    "previewButton3"
+  ).href = offer3.url;
+
+
+  // Generate config.js
+
+  const config = `const AFFILIATE_CONFIG = ${JSON.stringify(
+    {
+      siteName: siteName,
+
+      offers: {
+        offer1: offer1,
+        offer2: offer2,
+        offer3: offer3
+      },
+
+      tracking: {
+        enabled: true,
+
+        utm: {
+          source: "affiliate",
+          medium: "landing-page",
+          campaign: "default"
+        }
+      }
+
+    },
+    null,
+    2
+  )};`;
+
+
+  document.getElementById(
+    "configOutput"
+  ).value = config;
+
+
+  document.getElementById(
+    "previewPanel"
+  ).style.display = "block";
+
+
+  document.getElementById(
+    "configPanel"
+  ).style.display = "block";
+
+
+  document.getElementById(
+    "successMessage"
+  ).style.display = "block";
+
+}
+
+
+function copyConfig() {
+
+  const output =
+    document.getElementById("configOutput");
+
+  output.select();
+
+  navigator.clipboard.writeText(
+    output.value
+  );
+
+  alert(
+    "config.js copied to clipboard."
+  );
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,129 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Landing Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+  <title>My Landing Page</title>
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f7fb;
-            color: #222;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background: white;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            color: #666;
-            max-width: 650px;
-            margin: auto;
-            line-height: 1.6;
-        }
-
-        .button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 16px 35px;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .button:hover {
-            background: #1d4ed8;
-        }
-
-        .section {
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .cards {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .card {
-            background: white;
-            padding: 30px;
-            width: 280px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: #111827;
-            color: white;
-        }
-    </style>
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
 
-    <section class="hero">
-        <h1>Discover Something Amazing</h1>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
 
-        <p>
-            Get access to our exclusive offer today.
-            Simple, fast and completely easy to use.
-        </p>
+      <h1 id="site-title">Discover Something Amazing</h1>
 
-        <a href="#" class="button">GET STARTED</a>
-    </section>
+      <p>
+        Explore our featured offers and find the option
+        that works best for you.
+      </p>
+
+      <a href="#offers" class="cta-button">
+        VIEW OFFERS
+      </a>
+
+    </div>
+  </section>
 
 
-    <section class="section">
+  <!-- Offers Section -->
+  <section class="section" id="offers">
 
-        <h2>Why Choose Us?</h2>
+    <div class="container">
 
-        <div class="cards">
+      <h2>Featured Offers</h2>
 
-            <div class="card">
-                <h3>Easy</h3>
-                <p>Simple and easy-to-use experience.</p>
-            </div>
+      <div class="offer-grid">
 
-            <div class="card">
-                <h3>Fast</h3>
-                <p>Quick access from any device.</p>
-            </div>
+        <!-- Offer 1 -->
+        <div class="offer-card">
 
-            <div class="card">
-                <h3>Free</h3>
-                <p>Start today without complicated setup.</p>
-            </div>
+          <h2 id="offer1-name">Offer 1</h2>
+
+          <p id="offer1-description">
+            Discover this special offer.
+          </p>
+
+          <a
+            id="offer1-button"
+            href="#"
+            class="cta-button"
+            data-affiliate="offer1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get Offer
+          </a>
 
         </div>
 
-    </section>
+
+        <!-- Offer 2 -->
+        <div class="offer-card">
+
+          <h2 id="offer2-name">Offer 2</h2>
+
+          <p id="offer2-description">
+            Check out this offer.
+          </p>
+
+          <a
+            id="offer2-button"
+            href="#"
+            class="cta-button"
+            data-affiliate="offer2"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get Offer
+          </a>
+
+        </div>
 
 
-    <footer>
-        © 2026 My Landing Page
-    </footer>
+        <!-- Offer 3 -->
+        <div class="offer-card">
+
+          <h2 id="offer3-name">Offer 3</h2>
+
+          <p id="offer3-description">
+            Explore this offer.
+          </p>
+
+          <a
+            id="offer3-button"
+            href="#"
+            class="cta-button"
+            data-affiliate="offer3"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get Offer
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      © 2026 <span id="footer-name">My Landing Page</span>
+    </p>
+  </footer>
+
+
+  <!-- Configuration -->
+  <script src="config.js"></script>
+
+  <!-- Tracking -->
+  <script src="tracking.js"></script>
+
+
+  <!-- Page Logic -->
+  <script>
+
+    // Site name
+    document.getElementById("site-title").textContent =
+      AFFILIATE_CONFIG.siteName;
+
+    document.getElementById("footer-name").textContent =
+      AFFILIATE_CONFIG.siteName;
+
+
+    // Offer 1
+    document.getElementById("offer1-name").textContent =
+      AFFILIATE_CONFIG.offers.offer1.name;
+
+    document.getElementById("offer1-description").textContent =
+      AFFILIATE_CONFIG.offers.offer1.description;
+
+    document.getElementById("offer1-button").textContent =
+      AFFILIATE_CONFIG.offers.offer1.buttonText;
+
+    document.getElementById("offer1-button").href =
+      AFFILIATE_CONFIG.offers.offer1.url;
+
+
+    // Offer 2
+    document.getElementById("offer2-name").textContent =
+      AFFILIATE_CONFIG.offers.offer2.name;
+
+    document.getElementById("offer2-description").textContent =
+      AFFILIATE_CONFIG.offers.offer2.description;
+
+    document.getElementById("offer2-button").textContent =
+      AFFILIATE_CONFIG.offers.offer2.buttonText;
+
+    document.getElementById("offer2-button").href =
+      AFFILIATE_CONFIG.offers.offer2.url;
+
+
+    // Offer 3
+    document.getElementById("offer3-name").textContent =
+      AFFILIATE_CONFIG.offers.offer3.name;
+
+    document.getElementById("offer3-description").textContent =
+      AFFILIATE_CONFIG.offers.offer3.description;
+
+    document.getElementById("offer3-button").textContent =
+      AFFILIATE_CONFIG.offers.offer3.buttonText;
+
+    document.getElementById("offer3-button").href =
+      AFFILIATE_CONFIG.offers.offer3.url;
+
+  </script>
 
 </body>
 </html>
